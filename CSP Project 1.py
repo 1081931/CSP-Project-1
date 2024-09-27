@@ -8,16 +8,20 @@ x.speed(100)
 x.pensize(5)
 radius = int(input("Enter the radius of the circle"))
 step = int(input("Enter the amount of steps that you want"))
-repeat = int(input("How many times do you want the pattern to repeat"))
+repeat = 1
+color = 1
 step_angle = int(input("What do you want the angle between each shape to be?"))
 
-for i in range(repeat):
+
+while repeat == 1:
   x.pencolor("black")
-  x.fillcolor(color_list[i%len(color_list)])
+  x.fillcolor(color_list[color%len(color_list)])
   x.begin_fill()
   x.circle(radius,360,step)
   x.end_fill()
   x.left(step_angle)
+  color+=1
   
 wn = trtl.Screen()
 wn.mainloop()
+
