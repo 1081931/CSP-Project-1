@@ -4,9 +4,8 @@ x = trtl.Turtle()
 
 color_list = ["red","blue","yellow","purple","green"]
 
-
-pensize = int(input("Enter a pen size"))
-x.pensize(pensize)
+x.speed(100)
+x.pensize(5)
 radius = int(input("Enter the radius of the circle"))
 step = int(input("Enter the amount of steps that you want"))
 repeat = int(input("How many times do you want the pattern to repeat"))
@@ -22,4 +21,3 @@ for i in range(repeat):
   
 wn = trtl.Screen()
 wn.mainloop()
-#idk
