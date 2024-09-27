@@ -10,7 +10,7 @@ x.pensize(pensize)
 radius = int(input("Enter the radius of the circle"))
 step = int(input("Enter the amount of steps that you want"))
 repeat = int(input("How many times do you want the pattern to repeat"))
-step_angle = int(input("What do you wnat the angle between each shape to be?"))
+step_angle = int(input("What do you want the angle between each shape to be?"))
 
 for i in range(repeat):
   x.pencolor("black")
