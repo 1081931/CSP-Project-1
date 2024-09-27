@@ -1,4 +1,3 @@
-# Kunsh smells
 import turtle as trtl
 x = trtl.Turtle()
 
@@ -14,7 +13,6 @@ def sides(step):
   if step >= 3:
     color = 1
     color_list = ["red","blue","yellow","purple","green"]
-
     while repeat == 1:
       x.pencolor("black")
       x.fillcolor(color_list[color%len(color_list)])
@@ -23,6 +21,8 @@ def sides(step):
       x.end_fill()
       x.left(step_angle)
       color+=1
+  else:
+    print("You need more than 2 steps")
 
 sides(step)
 
