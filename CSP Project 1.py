@@ -1,12 +1,24 @@
 # Project
 import turtle as trtl
 x = trtl.Turtle()
-x.pensize(10)
+
+color_list = ["red","blue","yellow","grey","green"]
+
+
+pensize = int(input("Enter a pen size"))
+x.pensize(pensize)
 radius = int(input("Enter the radius of the circle"))
 step = int(input("Enter the amount of steps that you want"))
-for i in range(4):
+repeat = int(input("How many times do you want the pattern to repeat"))
+step_angle = int(input("What do you wnat the angle between each shape to be?"))
 
-  x.circle(radius,360,step100)
+for i in range(repeat):
+  x.color(color_list)
+  x.begin_fill()
+  x.circle(radius,360,step)
+  x.end_fill()
+  x.left(step_angle)
+  
 wn = trtl.Screen()
 wn.mainloop()
 #idk
