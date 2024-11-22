@@ -1,62 +1,40 @@
-
-password = ent_password.get()
-lbl_display_password.config(text-f"Your password is: (password}")
-2
 # A program creates a window on your screen using Tkinter.
-3
-4
+
 import tkinter as tk
-5
-6
+
 def test_my_button():
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-frame_auth.tkraise()
+
+    password = ent_password.get()
+    lbl_display_password.config(text=f"Your password is: {password}")
+    frame_auth.tkraise()
+
 # Main window
 root = tk.Tk()
-root.wn_geometry("300x200")
+root.wm_geometry("300x200")
+
 frame_login = tk.Frame(root)
-ame_login.grid(sticky="news", row=8, column=8)
-19 frame_auth= tk.Frame(root)
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
+frame_login.grid(sticky="news", row=8, column=8)
+
+frame_auth= tk.Frame(root)
 frame_auth.grid(sticky="news", row=0, column=0)
-lbl_username = tk.Label(frame_login, text="Username:", font="Helvetica", pady=10, padx=10) 1b1_username.grid(row=0, column=0)
-ent_username = tk.Entry(frame_login, bd=3) ent_username.grid(row=0, column=1, pady=5)
-lbl_password = tk.Label(frame_login, text="Password:", font="Helvetica", pady-10, padx=10) lbl_password.grid(row=1, column=0)
-ent_password = tk.Entry(frame_login, bd=3, show="*") ent_password.grid(row=1, column-1, pady-5)
-btn_login = tk.Button(frame_login, text="Login", command-test_my_button) btn_login.grid(row=2, column=0, columnspan=2, pady=10)
+
+lbl_username = tk.Label(frame_login, text="Username:", font="Helvetica", pady=10, padx=10) 
+lbl_username.grid(row=0, column=0)
+
+ent_username = tk.Entry(frame_login, bd=3) 
+ent_username.grid(row=0, column=1, pady=5)
+
+lbl_password = tk.Label(frame_login, text="Password:", font="Helvetica", pady=10, padx=10) 
+lbl_password.grid(row=1, column=0)
+
+ent_password = tk.Entry(frame_login, bd=3, show="*") 
+ent_password.grid(row=1, column=1, pady=5)
+
+btn_login = tk.Button(frame_login, text="Login", command=test_my_button) 
+btn_login.grid(row=2, column=0, columnspan=2, pady=10)
+
 lbl_display_password= tk.Label(frame_auth, text="", font="Helvetica", pady=10, padx=10)
 lbl_display_password.grid(row=0, column=0)
+
 frame_login.tkraise()
-42 root.mainloop()
+root.mainloop()
