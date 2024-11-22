@@ -12,6 +12,15 @@ def test_my_button():
 root = tk.Tk()
 root.wm_geometry("300x200")
 
+
+# Add this code before the code that creates your "Login" button
+bt_image = tk.PhotoImage(file="depositphotos_9632219-stock-photo-red-button-isolated.jpg")
+bt_image = bt_image.subsample(10,10)
+
+# Add this keyword argument to your “Login” button creation.
+image=bt_image
+
+
 frame_login = tk.Frame(root)
 frame_login.grid(sticky="news", row=8, column=8)
 
@@ -38,3 +47,5 @@ lbl_display_password.grid(row=0, column=0)
 
 frame_login.tkraise()
 root.mainloop()
+
+
