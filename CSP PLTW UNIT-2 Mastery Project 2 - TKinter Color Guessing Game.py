@@ -5,34 +5,41 @@ root.wm_geometry("400x600")
 
 frame_color = tk.Frame(root)
 
-red = tk.Button(root, text = "red", command  = "onclick")
-red.grid(row = 0, column = 0)
+canvas = tk.Canvas(root, width = 300, height = 200, background = "red")
+canvas.pack()
 
-green = tk.Button(root, text = "green", command  = "onclick")
-green.grid(row = 0, column = 1)
+canvas.config(ANCHOR=tk.CENTER)
 
-blue = tk.Button(root, text = "blue", command  = "onclick")
-blue.grid(row = 0, column = 2)
+canvas.create_text(50, 50, text = "hi", font = ("arial", 30))
 
-yellow = tk.Button(root, text = "yellow", command  = "onclick")
-yellow.grid(row = 0, column = 3)
+red = tk.Button(root, text = "red", command  = "onclick", background = "red")
+red.pack()
 
-orange = tk.Button(root, text = "orange", command  = "onclick")
-orange.grid(row = 0, column = 4)
+green = tk.Button(root, text = "green", command  = "onclick", background = "green")
+green.pack()
 
-purple = tk.Button(root, text = "purple", command  = "onclick")
-purple.grid(row = 0, column = 5)
+blue = tk.Button(root, text = "blue", command  = "onclick", background = "blue")
+blue.pack()
 
-pink = tk.Button(root, text = "pink", command  = "onclick")
-pink.grid(row = 0, column = 6)
+yellow = tk.Button(root, text = "yellow", command  = "onclick", background = "yellow")
+yellow.pack()
 
-brown = tk.Button(root, text = "brown", command  = "onclick")
-brown.grid(row = 0, column = 7)
+orange = tk.Button(root, text = "orange", command  = "onclick", background = "orange")
+orange.pack()
 
-black = tk.Button(root, text = "black", command  = "onclick")
-black.grid(row = 0, column = 8)
+purple = tk.Button(root, text = "purple", command  = "onclick", background = "purple")
+purple.pack()
 
-white = tk.Button(root, text = "white", command  = "onclick")
-white.grid(row = 0, column = 9)
+pink = tk.Button(root, text = "pink", command  = "onclick", background = "pink")
+pink.pack()
+
+brown = tk.Button(root, text = "brown", command  = "onclick", background = "brown")
+brown.pack()
+
+black = tk.Button(root, text = "black", command  = "onclick", background = "black")
+black.pack()
+
+white = tk.Button(root, text = "white", command  = "onclick", background = "white")
+white.pack()
 
 root.mainloop()
