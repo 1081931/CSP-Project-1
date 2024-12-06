@@ -1,56 +1,54 @@
 import tkinter as tk
 import random
-from turtle import onclick
+
 root = tk.Tk()
 root.wm_geometry("400x600")
 
-
-frame_color = tk.Frame(root)
-
-
-colors = ["red","green","blue","yellow","orange", "purple", "pink", "brown", "black", "white"]
+colors = ["red", "green", "blue", "yellow", "orange", "purple", "pink", "brown", "black", "white"]
 variable = random.choice(colors)
+remaining_time = 60
+score = 0
+game_active = True  
 
 def button(color):
-    if color == variable:
-        print("congrats")
+    global variable, score, game_active
+    if game_active:  
+        if color == variable:
+            variable = random.choice(colors)
+            canvas.config(background=variable)
+            score += 1
+            score_label.config(text=f"Score: {score}")
+
+def countdown(time_left):
+    global remaining_time, game_active
+    remaining_time = time_left  
+    if remaining_time >= 0:
+        timer_label.config(text=f"Time left: {remaining_time} seconds")
+        root.after(1000, countdown, remaining_time - 1)
     else:
-        print("u are dumdum")
+        timer_label.config(text="Time's up!")
+        game_active = False  
 
-canvas = tk.Canvas(root, width = 300, height = 200, background = variable)
-canvas.pack()
+def center_text():
+    canvas_width = canvas.winfo_width()
+    canvas_height = canvas.winfo_height()
+    canvas.create_text(canvas_width / 2, canvas_height / 2, text="Guess the Color!", font=("Arial", 15), anchor="center")
 
-canvas.create_text(50, 50, text = "hi", font = ("arial", 30))
+canvas = tk.Canvas(root, width=300, height=200, background=variable)
+canvas.pack(fill="x", padx=50, pady=2)
 
-red = tk.Button(root, text = "red", background = "red", command = lambda: button("red"))
-red.pack()
+root.after(100, center_text)
 
-green = tk.Button(root, text = "green", background = "green", command = lambda: button("green"))
-green.pack()
+timer_label = tk.Label(root, text=f"Time left: {remaining_time} seconds")
+timer_label.pack()
 
-blue = tk.Button(root, text = "blue", background = "blue", command = lambda: button("blue"))
-blue.pack()
+score_label = tk.Label(root, text=f"Score: {score}")
+score_label.pack()
 
-yellow = tk.Button(root, text = "yellow", background = "yellow", command = lambda: button("yellow"))
-yellow.pack()
+countdown(remaining_time)
 
-orange = tk.Button(root, text = "orange", background = "orange", command = lambda: button("orange"))
-orange.pack()
-
-purple = tk.Button(root, text = "purple", background = "purple", command = lambda: button("purple"))
-purple.pack()
-
-pink = tk.Button(root, text = "pink", background = "pink", command = lambda: button("pink"))
-pink.pack()
-
-brown = tk.Button(root, text = "brown", background = "brown", command = lambda: button("brown"))
-brown.pack()
-
-black = tk.Button(root, text = "black", background = "black", command = lambda: button("black"))
-black.pack()
-
-white = tk.Button(root, text = "white", background = "white", command = lambda: button("white"))
-white.pack()
-
+for color in colors:
+    btn = tk.Button(root, text=color, background=color, command=lambda c=color: button(c))
+    btn.pack(fill="x", padx=50, pady=2)
 
 root.mainloop()
