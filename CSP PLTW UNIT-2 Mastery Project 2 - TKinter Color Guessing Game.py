@@ -14,10 +14,10 @@ def button(color):
     global variable, score, game_active
     if game_active:  
         if color == variable:
-            variable = random.choice(colors)
-            canvas.config(background=variable)
             score += 1
             score_label.config(text=f"Score: {score}")
+        variable = random.choice(colors)
+        canvas.config(background=variable)
 
 def countdown(time_left):
     global remaining_time, game_active
